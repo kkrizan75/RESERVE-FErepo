@@ -21,6 +21,7 @@ import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { BookingRequestsComponent } from './booking-requests/booking-requests.component'
 import { MatIconModule } from '@angular/material/icon';
 import { AcceptReservationComponent } from './accept-reservation/accept-reservation.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
 const routes: Routes = [
@@ -62,6 +63,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatTableModule,
     MatSortModule,
     MatDialogModule,

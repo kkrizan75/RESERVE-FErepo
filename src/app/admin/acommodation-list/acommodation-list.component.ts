@@ -8,6 +8,7 @@ import { AddUpdatePriceComponent } from '../add-update-price/add-update-price.co
 import { AcommodationService } from '../service/acommodation.service';
 import { Acommodation } from '../../shared/model/Acommodation';
 import { MatSort, Sort } from '@angular/material/sort';
+import { CreateAcommodationComponent } from '../create-acommodation/create-acommodation/create-acommodation.component';
 
 
 @Component({
@@ -20,10 +21,11 @@ export class AcommodationListComponent implements OnInit, AfterViewInit  {
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private acommodationService: AcommodationService, public dialog: MatDialog) {}
 
-  public displayedColumns: string[] = ['name', 'location', 'minGuests', 'maxGuests'];
+  public displayedColumns: string[] = ['name', 'location', 'minGuests', 'maxGuests', 'edit', 'reservations'];
 
   public dataSource = new MatTableDataSource<Acommodation>();
   public acommodations: Acommodation[] = [];
+  public acommodation: Acommodation = new Acommodation();
 
   //public acommodation: Acommodation = { allAcco: [] };
   
@@ -61,24 +63,33 @@ export class AcommodationListComponent implements OnInit, AfterViewInit  {
   }
   
 
-  public addUpdateTermin(selectedAcommodation: Acommodation): void {
-    this.dialog.open(AddUpdateFreeTerminComponent, {
-      width: '50%',
-      data: selectedAcommodation
+  public editAcommodation(selectedAcommodation: Acommodation): void {
+    this.dialog.open(AddUpdatePriceComponent, {
+      width: '60%',
+      data: selectedAcommodation,
     });
+    console.log(selectedAcommodation);
   }
 
-  public addUpdatePrice(selectedAcommodation: Acommodation): void {
-    this.dialog.open(AddUpdatePriceComponent, {
-      width: '50%',
-      data: selectedAcommodation
-    });
-  }
+  // public addUpdatePrice(selectedAcommodation: Acommodation): void {
+  //   this.dialog.open(AddUpdatePriceComponent, {
+  //     width: '50%',
+  //     data: selectedAcommodation
+  //   });
+  // }
 
   public bookingRequests(selectedAcommodation: Acommodation): void {
     this.dialog.open(BookingRequestsComponent, {
       width: '70%',
       data: selectedAcommodation
+    });
+  }
+
+  public createAcommodation(): void {
+    const dialogRef = this.dialog.open(CreateAcommodationComponent, { width: '60%' });
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.showAllAcommodations();
     });
   }
 
