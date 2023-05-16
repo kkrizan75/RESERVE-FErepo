@@ -1,37 +1,31 @@
-<div class="container">
+<div class="container" style="text-align: center;">
     <div class="datePicker">
-    <mat-form-field appearance="fill">
-        <mat-label>Enter dates where acommodation is free</mat-label>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter dates where accommodation is free</mat-label>
         <mat-date-range-input [rangePicker]="picker">
-        <input matStartDate placeholder="Start date" [(ngModel)]="acommodation.availableFrom">
-        <input matEndDate placeholder="End date" [(ngModel)]="acommodation.availableTo">
+          <input matStartDate placeholder="Start date" [(ngModel)]="acommodation.availableFrom">
+          <input matEndDate placeholder="End date" [(ngModel)]="acommodation.availableTo">
         </mat-date-range-input>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
-    </mat-form-field>
+      </mat-form-field>
     </div>
-
+  
     <div class="inputDiv">
-        <mat-form-field appearance="fill">
-            <mat-label>Price</mat-label>
-            <input matInput type="number" min="1" placeholder="Enter price here for selected dates" [(ngModel)]="acommodation.price">
-          </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" min="1" placeholder="Enter price here for selected dates" [(ngModel)]="acommodation.price">
+      </mat-form-field>
     </div>
-
+  
     <div class="toggleDiv">
-        <p class="p1">Per person</p>
-        <mat-slide-toggle class="toggle" [(ngModel)]="acommodation.isPricePerGuest"></mat-slide-toggle>
-        <p class="p2">Per acommodation</p>
+      <p class="p1">Per person</p>
+      <mat-slide-toggle class="toggle" [(ngModel)]="acommodation.isPricePerGuest"></mat-slide-toggle>
+      <p class="p2">Per unit</p>
     </div>
-
-    <!-- <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-        <mat-button-toggle [(ngModel)]="acommodation.isPricePerGuest">Per person</mat-button-toggle>
-        <mat-button-toggle >None</mat-button-toggle>
-        <mat-button-toggle [(ngModel)]="acommodation.isPricePerGuest">Per acommodation</mat-button-toggle>
-    </mat-button-toggle-group> -->
-
+  
     <div class="buttonDiv">
-    <button class="confirmButton" mat-stroked-button color="primary" (click)="addUpdatePrice()" [mat-dialog-close]="">Confirm</button>
+      <button class="confirmButton" mat-stroked-button color="primary" (click)="addUpdatePrice()">Confirm</button>
+      <button class="cancelButton" mat-stroked-button color="warn" [mat-dialog-close]>Cancel</button>
     </div>
-
-</div>
+  </div>
