@@ -9,6 +9,5 @@ export interface AllReservationInfo {
         accommodation: string;
         accepted: string;
         acception: string;
-        guestUsername: string;
     }[]
   }

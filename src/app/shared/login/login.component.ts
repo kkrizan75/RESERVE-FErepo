@@ -26,13 +26,11 @@ export class LoginComponent {
     this.router.navigate(['/app/register']);
   }
 
-  public async logIn(){
+  public logIn(){
 
   this.lgd.username = "" + this.Username
   this.lgd.password = "" +this.Password
-  if(await this.sharedService.login(this.lgd)){
-    this.router.navigate(['/user/myProfile'])
-  }
+  this.sharedService.login(this.lgd)
   }
   updateData() {
     throw new Error('Method not implemented.');

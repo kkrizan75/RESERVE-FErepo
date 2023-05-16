@@ -4,7 +4,6 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule, Routes } from '@angular/router';
 import { ReservationRequestComponent } from './reservation-request/reservation-request.component';
-import { CancelReservationComponent } from './cancel-reservation/cancel-reservation.component';
 
 const routes: Routes = [
   {
@@ -18,10 +17,6 @@ const routes: Routes = [
       {
         path: 'reservationReq',
         component: ReservationRequestComponent
-      },
-      {
-        path: 'cancelRes',
-        component: CancelReservationComponent
       }
     ],
     //data: {roles:['']}
@@ -31,8 +26,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     MyProfileComponent,
-    ReservationRequestComponent,
-    CancelReservationComponent
+    ReservationRequestComponent
   ],
   imports: [
     CommonModule,

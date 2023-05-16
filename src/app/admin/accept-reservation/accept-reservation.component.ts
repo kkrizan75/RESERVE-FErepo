@@ -31,19 +31,16 @@ export class AcceptReservationComponent {
   }
 
   public reservationListFunction(){
-    let i = 0;
     this.adminService.reservationListFunction().subscribe((result) => {
       console.log(result)
       result.forEach(element=>{
         this.reservationList.push(element)
       })
       this.reservationList.forEach(element=>{
-        console.log(element.allAcco[i].accepted)
-        console.log(i + "")
+        if(element.allAcco[0] != undefined && element.allAcco[0].accepted === "0")
         this.reservationListTwo.push(element)
-        i = i + 1;
       })
-      console.log(this.reservationList[0].allAcco)
+      console.log(this.reservationList)
     });
   }
   public acceptRes(id : string){

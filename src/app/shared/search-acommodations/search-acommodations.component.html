@@ -3,25 +3,29 @@
     <div class="inputDiv">
         <mat-form-field class="example-full-width">
             <mat-label >By location  </mat-label>
-                <input type="text" id="locationInput" required matInput [(ngModel)]="acommodation.location" >
+                <input type="text" id="locationInput"  matInput [(ngModel)]="searchAcommodation.location" >
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
             <mat-label >By number of guests  </mat-label>
-                <input type="number" min="0" required matInput [(ngModel)]="acommodation.maxNumGuest" >
+                <input type="number" min="0"  matInput [(ngModel)]="searchAcommodation.maxGuests" >
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="example-full-width">
             <mat-label>Enter a date range</mat-label>
             <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="Start date"> <!--ovde treba ngModel za datum-->
-            <input matEndDate placeholder="End date">
+            <input matStartDate placeholder="Start date" [(ngModel)]="searchAcommodation.availableFrom">
+            <input matEndDate placeholder="End date" [(ngModel)]="searchAcommodation.availableTo">
             </mat-date-range-input>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-date-range-picker #picker></mat-date-range-picker>
         </mat-form-field>
 
-        <button class="btn-search" [disabled]="acommodation.location === '' || acommodation.maxNumGuest === 0 " (click)="searchAcommodations()"><mat-icon><span class="material-symbols-outlined">
+        <button class="btn-reset" (click)="resetTable()" [disabled]="!isSearchClicked"><mat-icon><span class="material-symbols-outlined">
+            rotate_left
+        </span></mat-icon></button>
+
+        <button class="btn-search" [disabled]="searchAcommodation.location === '' || searchAcommodation.maxGuests === 0   || searchAcommodation.availableFrom === '' || searchAcommodation.availableTo === ''" (click)="searchAcommodations()"><mat-icon><span class="material-symbols-outlined">
             search_check
         </span></mat-icon></button>
 
@@ -29,29 +33,29 @@
 
 
     <div class="tableDiv">
-        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
 
             <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                <mat-cell *matCellDef="let acommodation"> {{acommodation.name}} </mat-cell>
             </ng-container>
         
             <ng-container matColumnDef="location">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
-                <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+                <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Location </mat-header-cell>
+                <mat-cell *matCellDef="let acommodation"> {{acommodation.location}} </mat-cell>
             </ng-container>
         
             <ng-container matColumnDef="minGuests">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Min guests </th>
-            <td mat-cell *matCellDef="let element"> {{element.minNumGuest}} </td>
+                <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Min guests </mat-header-cell>
+                <mat-cell *matCellDef="let acommodation"> {{acommodation.minGuests}} </mat-cell>
             </ng-container>
         
             <ng-container matColumnDef="maxGuests">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Max guests </th>
-            <td mat-cell *matCellDef="let element"> {{element.maxNumGuest}} </td>
+                <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Max guests </mat-header-cell>
+                <mat-cell *matCellDef="let acommodation"> {{acommodation.maxGuests}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="totalPrice">
+            <!-- <ng-container matColumnDef="totalPrice">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Total price </th>
                 <td mat-cell *matCellDef="let element">  </td>
             </ng-container>
@@ -59,24 +63,15 @@
             <ng-container matColumnDef="dailyPrice">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Price per night </th>
                 <td mat-cell *matCellDef="let element">  </td>
-                </ng-container>
+                </ng-container> -->
 
-            <!-- <ng-container matColumnDef="addTermin">
-                <th mat-header-cell *matHeaderCellDef > </th>
-                <td mat-cell *matCellDef="let element">
-                    <button mat-stroked-button color="primary" (click)="addUpdateTermin(element)">Dates</button> </td>
-            </ng-container>
-
-            <ng-container matColumnDef="cena">
-                <th mat-header-cell *matHeaderCellDef > </th>
-                <td mat-cell *matCellDef="let element">
-                    <button mat-stroked-button color="primary" (click)="addUpdatePrice(element)">Price</button> </td>
-            </ng-container> -->
 
         
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+        </mat-table>
     </div>
   
 </div>

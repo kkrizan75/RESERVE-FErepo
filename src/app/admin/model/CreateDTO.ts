@@ -1,8 +1,8 @@
-export class Acommodation {
+export class CreateDTO {
     id : string = '';
     name: string = '';
     location: string = '';
-    photos: string[] = [];
+    photos: string = '';
     minGuests: number = 0;
     maxGuests: number = 0;
     benefits: string = ''; 
@@ -16,8 +16,8 @@ export class Acommodation {
             this.photos = obj.photos;
             this.minGuests = obj.minGuests;
             this.maxGuests = obj.maxGuests;
-            this.benefits = obj.benefits;
-            this.acception = obj.acception;
+            this.benefits = obj.benefits;    
+            this.acception = obj.acception;    
         }
     }
 

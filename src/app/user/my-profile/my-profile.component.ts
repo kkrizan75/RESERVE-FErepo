@@ -84,8 +84,8 @@ export class MyProfileComponent {
     this.router.navigate(['/app/login']);
   }
 
-  async deleteAccount(){
-    if(await this.userService.deleteUser())
+  deleteAccount(){
+    if(this.userService.deleteUser())
       this.redirectToLogin();
     else console.log("cant delete account xd")
   }

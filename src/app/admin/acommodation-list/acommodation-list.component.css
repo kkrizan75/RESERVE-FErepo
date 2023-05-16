@@ -1,9 +1,11 @@
+/* table {
+  width: 100%;
+}
 
 .tableDiv{
   margin-left: 2%;
   margin-right: 2%;
   margin-bottom: 1%;
-  padding-top: 1%;
 }
 
 .mainDiv{
@@ -27,4 +29,81 @@
     border-top: 1px solid transparent;
   }
 
- 
+  *{
+    box-sizing: border-box;
+  }
+
+  */
+
+  body {
+    overflow: hidden; /* Hide scrollbars */
+  }
+  
+  table {
+      width: 100%;
+      }
+      
+  .tableDiv{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 1%;
+  }
+  
+  .mainDiv{
+    overflow: auto;
+  }
+  
+  .mainDiv{
+    background-color: #d7fae3;
+    height: 100vh;
+    width: 100vw;
+    padding: 10px;
+    margin:2px;
+  }
+  
+  .inputDiv{
+    margin-top: 1%;
+    margin-left: 2%;
+  
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  
+  .mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+  }
+  
+  .example-full-width{
+    margin-right: 1%;
+    width: 12%;
+  }
+  
+  .example-full-width1{
+    width: 12%;
+  }
+  
+  
+  *{
+    box-sizing: border-box;
+  }
+  
+  
+  .btn-search{
+    margin-left: 41%;
+    width: 4%;
+    height: 7%;
+    border-style: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    color:#0e0d0d ;
+    background-color:transparent;
+    pointer-events: painted;  
+  }
+  
+    
+    
