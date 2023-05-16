@@ -1,0 +1,54 @@
+.tableDiv{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 1%;
+    padding-top: 1%;
+  }
+  
+    th.mat-sort-header-sorted {
+      color: black;
+    }
+    
+    .mat-mdc-row .mat-mdc-cell {
+      border-bottom: 1px solid transparent;
+      border-top: 1px solid transparent;
+    }
+  
+    .inputDiv{
+      margin-top: 1%;
+      margin-left: 2%;
+    }
+
+    .example-full-width{
+      margin-right: 2%;
+      width: 20%;
+    }
+    
+
+    .btn-search{
+      margin-left: 27%;
+      margin-top: 0.7%;
+      width: 3%;
+      height: 5%;
+      border-style: none;
+      cursor: pointer;
+      border-radius: 50%;
+      position: absolute;
+      color:beige ;
+      background-color:black;
+      pointer-events: painted;  
+      
+    }
+
+    .btn-search:hover{
+      background-color: rgb(175, 235, 120);
+      color: black;
+    }
+
+    .btn-search:disabled{
+      background-color: gray;
+      pointer-events: none;
+    }
+
+
+  

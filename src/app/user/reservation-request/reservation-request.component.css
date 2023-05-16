@@ -1,0 +1,74 @@
+body {
+    background-image: url("../../shared/brown.jpg"); /* brown color */
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    background-color: #aa5301;
+    display: flex;
+    flex-direction: column;
+    font-size: 14pt;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    width: 450px;
+    height: 70vh;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input, select {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+    width: 350px;
+  }
+  
+  input[type="date"]::-webkit-inner-spin-button,
+  input[type="date"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  button:disabled {
+    background-color: gray;
+  }
+  
+  button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    background-color: #3a2301; /* brown color */
+  }
+  
+  button:enabled:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }

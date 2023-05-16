@@ -1,0 +1,23 @@
+<table class="reservation-table">
+  <thead>
+    <tr>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Guest Number</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="reservationListTwo.length === 0">
+      <td colspan="4">No reservations found.</td>
+    </tr>
+    <tr *ngFor="let reservation of reservationListTwo[0]?.allAcco" [attr.id]="'reservation-' + reservation.id" class="reservation-row">
+      <td *ngIf="reservation.accepted != '1'" class="reservation-date">{{ reservation.fromDate.split(' ')[0] }}</td>
+      <td *ngIf="reservation.accepted != '1'" class="reservation-date">{{ reservation.toDate.split(' ')[0] }}</td>
+      <td *ngIf="reservation.accepted != '1'" class="reservation-guest">{{ reservation.guestNumber }}</td>
+      <td *ngIf="reservation.accepted != '1'"class="reservation-action">
+        <button *ngIf="reservation.accepted != '1'" [attr.id]="'accept-button-' + reservation.id" class="accept-button" (click)="acceptRes(reservation.id)" >Accept</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

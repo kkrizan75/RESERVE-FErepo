@@ -1,0 +1,18 @@
+.confirmButton{
+    margin-left: 2%;
+}
+
+.container{
+    margin-top: 3%;
+}
+
+.toggleDiv{
+    display: inline-flex;
+    padding: 2%;
+}
+
+
+.toggle{
+    margin-left: 5%;
+    margin-right: 5%;
+}

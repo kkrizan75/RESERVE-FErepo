@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="datePicker">
+    <mat-form-field appearance="fill">
+        <mat-label>Enter dates for a selected price</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date">
+        <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    </div>
+
+    <div class="inputDiv">
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" min="1" placeholder="Enter price here for selected dates">
+          </mat-form-field>
+    </div>
+
+    <div class="toggleDiv">
+        <p class="p1">Per person</p>
+        <mat-slide-toggle class="toggle" [(ngModel)]="isChecked"></mat-slide-toggle>
+        <p class="p2">Per acommodation</p>
+    </div>
+
+    <div class="buttonDiv">
+    <button class="confirmButton" mat-stroked-button color="primary" (click)="addUpdatePrice()">Confirm</button>
+    </div>
+
+</div>
