@@ -41,7 +41,6 @@ export class AcommodationListComponent implements OnInit, AfterViewInit  {
     this.acommodationService.getAllAcommodations().subscribe(
       res => {
         this.acommodations = res;
-        console.log(this.acommodations);
         this.dataSource.data = this.acommodations;
         console.log(this.dataSource.data);
       },

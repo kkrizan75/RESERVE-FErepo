@@ -7,6 +7,10 @@ interface AcommodationResponse {
   allAcco: Acommodation[];
 }
 
+interface AcommodationSearch {
+  searchInfo: Acommodation[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -40,7 +44,9 @@ export class AcommodationService {
       guestNumber: guestNumber,
     };
 
-    return this.http.post<any>(this.apiHost + "searchAcco", requestBody);
+    return this.http.post<AcommodationSearch>(this.apiHost + "searchAcco", requestBody).pipe(
+      map(response => response.searchInfo)
+    );
   }
 
   

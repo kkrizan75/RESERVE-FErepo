@@ -55,20 +55,21 @@
                 <mat-cell *matCellDef="let acommodation"> {{acommodation.maxGuests}} </mat-cell>
             </ng-container>
 
-            <!-- <ng-container matColumnDef="totalPrice">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Total price </th>
-                <td mat-cell *matCellDef="let element">  </td>
+
+            <ng-container *ngIf="isSearchClicked">
+                <ng-container matColumnDef="totalPrice">
+                    <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Total price </mat-header-cell>
+                    <mat-cell *matCellDef="let acommodation"> {{acommodation.totalPrice}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="dailyPrice">
+                    <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Price per night </mat-header-cell>
+                    <mat-cell *matCellDef="let acommodation"> {{acommodation.price}} </mat-cell>
+                </ng-container>
             </ng-container>
-
-            <ng-container matColumnDef="dailyPrice">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Price per night </th>
-                <td mat-cell *matCellDef="let element">  </td>
-                </ng-container> -->
-
+            
 
         
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-
             <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 
         </mat-table>

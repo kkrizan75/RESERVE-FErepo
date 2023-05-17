@@ -47,7 +47,6 @@ export class SearchAcommodationsComponent implements AfterViewInit , OnInit {
     this.acommodationService.getAllAcommodations().subscribe(
         res => {
         this.acommodations = res;
-        console.log(this.acommodations);
         this.dataSource.data = this.acommodations;
         console.log(this.dataSource.data);
       },
@@ -62,12 +61,16 @@ export class SearchAcommodationsComponent implements AfterViewInit , OnInit {
     console.log(this.searchAcommodation);
     this.isSearchClicked = true;
     this.isResetClicked = false;
+
+    this.displayedColumns.push('totalPrice', 'dailyPrice');
+
     this.acommodationService.searchAccommodations(this.searchAcommodation.location, this.searchAcommodation.availableFrom, this.searchAcommodation.availableTo, this.searchAcommodation.maxGuests).subscribe(res => {
       this.acommodations = res;
       this.dataSource.data = this.acommodations;
       console.log(this.acommodations);
     })
   }
+  
 
   public resetTable(): void {
     this.isResetClicked = true;
@@ -76,6 +79,9 @@ export class SearchAcommodationsComponent implements AfterViewInit , OnInit {
     this.searchAcommodation.maxGuests = 0;
     this.searchAcommodation.availableFrom = '';
     this.searchAcommodation.availableTo = '';
+    this.displayedColumns.pop();
+    this.displayedColumns.pop();
+
     this.showAllAcommodations();
   }
   
