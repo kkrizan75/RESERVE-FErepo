@@ -6,7 +6,7 @@ export class Acommodation {
     minGuests: number = 0;
     maxGuests: number = 0;
     benefits: string = ''; 
-    acception: boolean = false;
+    acception: string = '';
 
     public constructor(obj?: any) {
         if (obj) {
