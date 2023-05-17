@@ -12,7 +12,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { AcommodationListComponent } from './acommodation-list/acommodation-list.component';
 import { MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { AddUpdateFreeTerminComponent } from './add-update-free-termin/add-update-free-termin.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core'
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -49,7 +48,6 @@ const routes: Routes = [
     CreateAcommodationComponent,
     Temp2Component,
     AcommodationListComponent,
-    AddUpdateFreeTerminComponent,
     AddUpdatePriceComponent,
     BookingRequestsComponent,
     AcceptReservationComponent,

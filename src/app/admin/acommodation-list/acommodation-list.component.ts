@@ -3,7 +3,6 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { AddUpdateFreeTerminComponent } from '../add-update-free-termin/add-update-free-termin.component';
 import { AddUpdatePriceComponent } from '../add-update-price/add-update-price.component';
 import { AcommodationService } from '../service/acommodation.service';
 import { Acommodation } from '../../shared/model/Acommodation';
@@ -26,8 +25,6 @@ export class AcommodationListComponent implements OnInit, AfterViewInit  {
   public dataSource = new MatTableDataSource<Acommodation>();
   public acommodations: Acommodation[] = [];
   public acommodation: Acommodation = new Acommodation();
-
-  //public acommodation: Acommodation = { allAcco: [] };
   
 
   @ViewChild(MatSort) sort!: MatSort;
