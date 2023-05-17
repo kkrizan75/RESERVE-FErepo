@@ -51,7 +51,6 @@ const routes: Routes = [
     MatDatepickerModule,
     MatSortModule,
     MatIconModule,
-    
     RouterModule.forChild(routes)
   ]
 })

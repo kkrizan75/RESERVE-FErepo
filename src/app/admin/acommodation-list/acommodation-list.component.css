@@ -1,39 +1,3 @@
-/* table {
-  width: 100%;
-}
-
-.tableDiv{
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 1%;
-}
-
-.mainDiv{
-    background-color: #abb4dd;
-    height: 100vh;
-    width: 100vw;
-  }
-  
-  .inputDiv{
-    margin-top: 1%;
-    margin-left: 2%;
-  
-  }
-
-  th.mat-sort-header-sorted {
-    color: black;
-  }
-  
-  .mat-mdc-row .mat-mdc-cell {
-    border-bottom: 1px solid transparent;
-    border-top: 1px solid transparent;
-  }
-
-  *{
-    box-sizing: border-box;
-  }
-
-  */
 
   body {
     overflow: hidden; /* Hide scrollbars */
@@ -44,65 +8,44 @@
       }
       
   .tableDiv{
+    margin-top: 1%;
     margin-left: 2%;
     margin-right: 2%;
     margin-bottom: 1%;
+    position: relative;
   }
   
-  .mainDiv{
-    overflow: auto;
-  }
   
-  .mainDiv{
-    background-color: #d7fae3;
-    height: 100vh;
-    width: 100vw;
-    padding: 10px;
-    margin:2px;
-  }
-  
-  .inputDiv{
-    margin-top: 1%;
-    margin-left: 2%;
-  
-  }
   
   th.mat-sort-header-sorted {
     color: black;
   }
   
   .mat-mdc-row .mat-mdc-cell {
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
     border-top: 1px solid transparent;
   }
   
-  .example-full-width{
-    margin-right: 1%;
-    width: 12%;
-  }
-  
-  .example-full-width1{
-    width: 12%;
-  }
-  
+ 
   
   *{
     box-sizing: border-box;
   }
   
   
-  .btn-search{
-    margin-left: 41%;
-    width: 4%;
-    height: 7%;
-    border-style: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: 50%;
+  .btn-add {
     position: absolute;
-    color:#0e0d0d ;
-    background-color:transparent;
-    pointer-events: painted;  
+    top: 0;
+    right: 0;
+    margin: 10px;
+    border: 0;
+    border-radius: 30%;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .btn-icon{
+    margin-top: 7%;
   }
   
     

@@ -10,6 +10,7 @@ export class Acommodation {
     name: string = '';
     photos: string[] = [];
     price: number = 0;
+    
 
     public constructor(obj?: any) {
       if (obj) {

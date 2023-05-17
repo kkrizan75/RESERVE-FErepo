@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Acommodation } from '../../model/AcommodationModel';
 import { CreateDTO } from '../../model/CreateDTO';
 import { AcommodationClassService } from '../../service/acommodation-class.service';
+import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-acommodation',
@@ -17,7 +19,7 @@ export class CreateAcommodationComponent {
 
   featureList: string[] = ['Klima', 'Parking', 'Wi-fi', 'Sef', 'Terasa', 'Pet-friendly', 'Zurke', 'Podno grejanje', 'Kada', 'Dozvoljeno pusenje'];
 
-  constructor(private acommodationService: AcommodationClassService) {}
+  constructor(private acommodationService: AcommodationClassService, private router: Router, private dialogRef: MatDialogRef<CreateAcommodationComponent>) {}
 
   public createNewAcommodation(createDTO: CreateDTO){
 
@@ -27,6 +29,7 @@ export class CreateAcommodationComponent {
       this.acommodation = res;
       //console.log(this.acommodation);
       alert(`A new accommodation "${createDTO.name}" has been created.`);
+      this.dialogRef.close();
     })
   }
 

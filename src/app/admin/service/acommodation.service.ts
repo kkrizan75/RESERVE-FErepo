@@ -43,6 +43,19 @@ export class AcommodationService {
     return this.http.post<any>(this.apiHost + "searchAcco", requestBody);
   }
 
+  
+  public editAccommodation(accoId: string, availableFrom: string, availableTo: string, price: number, isPricePerGuest: boolean) {
+    const requestBody = {
+      accoId: accoId,
+      availableFrom: availableFrom,
+      availableTo: availableTo,
+      price: price,
+      isPricePerGuest: isPricePerGuest,
+    };
+
+    return this.http.post<any>(this.apiHost + "editAcco", requestBody);
+  }
+
 
   
 

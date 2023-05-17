@@ -37,13 +37,13 @@
 
 
 			<div class="input">
-				<input type="text" class="input-field" required [(ngModel)]="createDTO.acception" name="accepted"/>
-				<label class="input-label">Accept reservations automatically/manually</label>
+				<input type="text" class="input-field" required [(ngModel)]="createDTO.acception" name="accepted" />
+				<label class="input-label">Write automatic or handle</label>
 			</div>
 
             <div class="action">
-				<button mat-raised-button #confirmButton name="confirmButton" color="primary" [disabled]="createDTO.location === '' || createDTO.name === '' || createDTO.photos === '' 
-				|| createDTO.benefits === '' || createDTO.maxGuests <= createDTO.minGuests "    (click)=createNewAcommodation(createDTO)>Confirm</button>
+				<button mat-raised-button name="confirmButton" color="primary" [disabled]="createDTO.location === '' || createDTO.name === '' || createDTO.photos === '' 
+				|| createDTO.benefits === '' || createDTO.maxGuests <= createDTO.minGuests || createDTO.acception !== 'automatic' && createDTO.acception !== 'handle' "  (click)=createNewAcommodation(createDTO)>Confirm</button>
 			</div>
 
 		</form>
