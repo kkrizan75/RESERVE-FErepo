@@ -5,7 +5,7 @@ import { CreateAcommodationComponent } from './create-acommodation/create-acommo
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select"
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { Temp2Component } from './temp2/temp2.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,8 +21,6 @@ import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { BookingRequestsComponent } from './booking-requests/booking-requests.component'
 import { MatIconModule } from '@angular/material/icon';
 import { AcceptReservationComponent } from './accept-reservation/accept-reservation.component';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-
 
 const routes: Routes = [
     {
@@ -41,6 +39,7 @@ const routes: Routes = [
               component: AcceptReservationComponent,
             },
         ],
+        data: {roles:['Admin']}
         
     }]
 
@@ -63,7 +62,6 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatButtonToggleModule,
     MatTableModule,
     MatSortModule,
     MatDialogModule,

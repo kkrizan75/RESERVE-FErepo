@@ -1,52 +1,30 @@
 
-  body {
-    overflow: hidden; /* Hide scrollbars */
+.tableDiv{
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 1%;
+  padding-top: 1%;
+}
+
+.mainDiv{
+    background-color: #abb4dd;
+    height: 100vh;
+    width: 100vw;
   }
   
-  table {
-      width: 100%;
-      }
-      
-  .tableDiv{
+  .inputDiv{
     margin-top: 1%;
     margin-left: 2%;
-    margin-right: 2%;
-    margin-bottom: 1%;
-    position: relative;
+  
   }
-  
-  
-  
+
   th.mat-sort-header-sorted {
     color: black;
   }
   
   .mat-mdc-row .mat-mdc-cell {
-    border-bottom: 2px solid transparent;
+    border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
   }
-  
- 
-  
-  *{
-    box-sizing: border-box;
-  }
-  
-  
-  .btn-add {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 10px;
-    border: 0;
-    border-radius: 30%;
-    z-index: 1;
-    cursor: pointer;
-  }
 
-  .btn-icon{
-    margin-top: 7%;
-  }
-  
-    
-    
+ 

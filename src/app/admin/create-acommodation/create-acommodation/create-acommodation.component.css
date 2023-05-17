@@ -39,17 +39,7 @@
 	flex-direction: column-reverse;
 	position: relative;
 	padding-top: 1.5rem;
-	&+.input {
-		margin-top: 1.5rem;
-	}
-}
-
-.input1 {
-	display: flex;
-	flex-direction: column-reverse;
-	color: red;
-	position: relative;
-	padding-top: 1rem;
+  
 	&+.input {
 		margin-top: 1.5rem;
 	}
@@ -67,7 +57,7 @@
 	color: #8597a3;
 	position: absolute;
 	top: 1.5rem;
-  	margin-left: 3%;
+  margin-left: 3%;
 	transition: .25s ease;
 }
 

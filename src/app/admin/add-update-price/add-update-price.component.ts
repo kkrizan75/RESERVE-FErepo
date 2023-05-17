@@ -1,8 +1,4 @@
-import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
-import { Acommodation } from '../../shared/model/Acommodation';
-import { AcommodationService } from '../service/acommodation.service';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-add-update-price',
@@ -11,18 +7,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AddUpdatePriceComponent {
 
-  //@Input() acommodation: Acommodation;
-  @Output() acommodationOutput = new Acommodation();
+  isChecked = false;
 
-  constructor(private acommodationService: AcommodationService, @Inject(MAT_DIALOG_DATA) public acommodation: Acommodation) {
-
-  }
-
-  
-  public addUpdatePrice(): void {
-    this.acommodationService.editAccommodation(this.acommodationOutput.id, this.acommodationOutput.availableFrom, this.acommodationOutput.availableTo, this.acommodationOutput.price, this.acommodationOutput.isPricePerGuest).subscribe(res => {
-      console.log(this.acommodationOutput);
-      alert(`Acommodation with name ${this.acommodationOutput.name} has sucesfully been updated!`);
-    })
+  public addUpdatePrice():void{
+    
   }
 }

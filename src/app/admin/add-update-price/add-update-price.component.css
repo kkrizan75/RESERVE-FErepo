@@ -1,26 +1,18 @@
-.toggleDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2%;
-  }
-  
-  .p1 {
-    margin-right: 10px;
-  }
-  
-  .p2 {
-    margin-left: 10px;
-  }
-
-.datePicker{
-    margin: 2%;
-}
-
 .confirmButton{
-    margin: 2%;
+    margin-left: 2%;
 }
 
-.cancelButton{
-    margin: 2%;
+.container{
+    margin-top: 3%;
+}
+
+.toggleDiv{
+    display: inline-flex;
+    padding: 2%;
+}
+
+
+.toggle{
+    margin-left: 5%;
+    margin-right: 5%;
 }

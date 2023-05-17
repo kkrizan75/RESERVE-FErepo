@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SearchAcommodationsComponent } from './shared/search-acommodations/search-acommodations.component';
+import { Temp2Component } from './admin/temp2/temp2.component';
 
 const routes: Routes = [
-  { path: 'search', component: SearchAcommodationsComponent },
+  { path: '', component: Temp2Component },
 ];
 
 @NgModule({

@@ -1,31 +1,24 @@
 export class Acommodation {
-    availableFrom: string = '';
-    availableTo: string = '';
-    benefits: string = '';
-    id: string = '';
-    isPricePerGuest: boolean = false;
-    location: string = '';
-    minGuests: number = 0;
-    maxGuests: number = 0;
+    id : string = '';
     name: string = '';
+    location: string = '';
     photos: string[] = [];
-    price: number = 0;
-    
+    minNumGuest: number = 0;
+    maxNumGuest: number = 0;
+    features: string = ''; 
+    acception: boolean = false;
 
     public constructor(obj?: any) {
-      if (obj) {
-        this.availableFrom = obj.availableFrom;
-        this.availableTo = obj.availableTo;
-        this.benefits = obj.benefits;
-        this.id = obj.id;
-        this.isPricePerGuest = obj.isPricePerGuest;
-        this.location = obj.location;
-        this.minGuests = obj.minGuests;
-        this.maxGuests = obj.maxGuests;
-        this.name = obj.name; 
-        this.photos = obj.photos;  
-        this.price = obj.price;
-      }
-  }
+        if (obj) {
+            this.id = obj.id;
+            this.name = obj.name; 
+            this.location = obj.location;
+            this.photos = obj.photos;
+            this.minNumGuest = obj.minNumGuest;
+            this.maxNumGuest = obj.maxNumGuest;
+            this.features = obj.features;
+            this.acception = obj.acception;
+        }
+    }
+
 }
-  
