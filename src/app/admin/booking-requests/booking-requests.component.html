@@ -3,6 +3,11 @@
     <div class="tableDiv">
         <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" >
 
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
             <ng-container matColumnDef="startDate">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
                 <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
@@ -42,11 +47,5 @@
 
         
     </div>
-
-    <div class="toggleDiv">
-        <p class="p1">Manual</p>
-        <mat-slide-toggle class="toggle" [(ngModel)]="isChecked"></mat-slide-toggle>
-        <p class="p2">Automatic</p>
-    </div> 
   
 </div>
