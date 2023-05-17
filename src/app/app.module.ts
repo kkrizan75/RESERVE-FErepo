@@ -9,12 +9,6 @@ import { UserModule} from './user/user.module'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './shared/model/auth.interceptor';
 import { AdminModule } from './admin/admin.module';
-import { MatInputModule} from '@angular/material/input';
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
-import { ViewChild } from '@angular/core';
-
-
 
 @NgModule({
   declarations: [

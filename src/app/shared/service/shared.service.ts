@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoggedIn } from '../model/logged-in';
@@ -8,6 +8,7 @@ import { Acommodation } from '../model/Acommodation';
 
 interface LoginResponse {
   token: string;
+  status: HttpStatusCode;
 }
 
 @Injectable({
@@ -39,25 +40,30 @@ getDecodedAccessToken(token: string): any {
 
 
 
-
-
 constructor(private http: HttpClient) { }
 
 
 
-login(logedin: LoggedIn) {
-  this.http.post<LoginResponse>(this.apiHost + "loginInfo", logedin, { headers: this.headers}).subscribe((data) => {
+async login(logedin: LoggedIn): Promise<boolean> {
+  const response = await this.http.post<LoginResponse>(this.apiHost + "loginInfo", logedin, { headers: this.headers }).toPromise();
 
-      localStorage.setItem("token",data.token);
 
-      const tokenInfo = this.getDecodedAccessToken(data.token)
-      localStorage.setItem("role",tokenInfo.role)
-      // if(tokenInfo.role == 'Admin') {
+  if (response && response.token) {
+      localStorage.setItem("token", response.token);
+      const tokenInfo = this.getDecodedAccessToken(response.token);
+      localStorage.setItem("role", tokenInfo.role);
+
+      // if (tokenInfo.role == 'Admin') {
       //   this.router.navigate(['/admin/flights']);
+      // } else {
+      //   this.router.navigate(['/flights']);
       // }
-      // else this.router.navigate(['/flights'])
+
       // this.isLoggedInSubject.next(true);
-    });
+      return true;
+  } else {
+      return false;
+  }
 }
 
   register(user: User) {
