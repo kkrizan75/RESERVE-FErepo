@@ -32,6 +32,7 @@ export class LoginComponent {
   this.lgd.password = "" +this.Password
   if(await this.sharedService.login(this.lgd)){
     this.router.navigate(['/user/myProfile'])
+    alert(`Logged in succesfully as a ${this.lgd.username}`)
   }
   }
   updateData() {
