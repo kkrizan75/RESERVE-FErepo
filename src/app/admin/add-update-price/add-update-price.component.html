@@ -1,10 +1,18 @@
 <div class="container" style="text-align: center;">
+
+  <div class="inputDiv">
+    <mat-form-field appearance="fill">
+      <mat-label>ID</mat-label>
+      <input matInput type="text" placeholder="Enter ID" [(ngModel)]="data.id" disabled>
+    </mat-form-field>
+  </div>
+
     <div class="datePicker">
       <mat-form-field appearance="fill">
         <mat-label>Enter dates where accommodation is free</mat-label>
         <mat-date-range-input [rangePicker]="picker">
-          <input matStartDate placeholder="Start date" [(ngModel)]="acommodation.availableFrom">
-          <input matEndDate placeholder="End date" [(ngModel)]="acommodation.availableTo">
+          <input matStartDate placeholder="Start date" [(ngModel)]="data.availableFrom">
+          <input matEndDate placeholder="End date" [(ngModel)]="data.availableTo">
         </mat-date-range-input>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
@@ -14,18 +22,18 @@
     <div class="inputDiv">
       <mat-form-field appearance="fill">
         <mat-label>Price</mat-label>
-        <input matInput type="number" min="1" placeholder="Enter price here for selected dates" [(ngModel)]="acommodation.price">
+        <input matInput type="number" min="1" placeholder="Enter price here for selected dates" [(ngModel)]="data.price">
       </mat-form-field>
     </div>
   
     <div class="toggleDiv">
       <p class="p1">Per person</p>
-      <mat-slide-toggle class="toggle" [(ngModel)]="acommodation.isPricePerGuest"></mat-slide-toggle>
+      <mat-slide-toggle class="toggle" [(ngModel)]="data.isPricePerGuest"></mat-slide-toggle>
       <p class="p2">Per unit</p>
     </div>
   
     <div class="buttonDiv">
-      <button class="confirmButton" mat-stroked-button color="primary" (click)="addUpdatePrice()">Confirm</button>
+      <button class="confirmButton" mat-stroked-button color="primary" (click)="addUpdatePrice()" [disabled]="data.availableFrom === '' || data.availableTo === '' || data.price === 0 ">Confirm</button>
       <button class="cancelButton" mat-stroked-button color="warn" [mat-dialog-close]>Cancel</button>
     </div>
   </div>

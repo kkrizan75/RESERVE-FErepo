@@ -13,6 +13,10 @@
     margin-left: 10px;
   }
 
+.inputDiv{
+  margin: 2%;
+}
+
 .datePicker{
     margin: 2%;
 }

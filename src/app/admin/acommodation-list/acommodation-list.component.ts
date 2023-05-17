@@ -63,9 +63,9 @@ export class AcommodationListComponent implements OnInit, AfterViewInit  {
   public editAcommodation(selectedAcommodation: Acommodation): void {
     this.dialog.open(AddUpdatePriceComponent, {
       width: '60%',
-      data: selectedAcommodation,
+      data: selectedAcommodation
     });
-    console.log(selectedAcommodation);
+
   }
 
   // public addUpdatePrice(selectedAcommodation: Acommodation): void {
