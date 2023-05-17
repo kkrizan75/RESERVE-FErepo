@@ -7,21 +7,11 @@ import { AllAccoInfo } from 'src/app/user/model/Accommodation';
 import { AllReservationInfo } from '../model/AllReservationInfo';
 import { switchMap, forkJoin } from 'rxjs';
 
-interface AllAcco {
-    accepted: string;
-    acception: string;
-    accommodation: string;
-    fromDate: string;
-    guestNumber: number;
-    id: string;
-    toDate: string;
-  }
+
 interface AccommodationData {
   allAcco: Array<AllAccoInfo>;
 }
-interface CheckData {
-  greeting: string;
-}
+
 interface AccpData {
     dlt: string;
   }
@@ -32,16 +22,10 @@ interface AccpData {
 })
 export class AdminService {
 
-
-
   apiHost: string = "http://localhost:8000/";
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/*' });
 constructor(private http: HttpClient) { }
 
-// getLoggedUser(): User {
-  
-//   return this.http.get<User[]>(this.apiHost + "my-tickets", { headers: this.headers})
-// }
 
 getToken(): any {
   const token =  localStorage.getItem("token");
@@ -63,10 +47,10 @@ reservationListFunction(): Observable<AllReservationInfo[]> {
       })
     );
   }
+
  acceptReservation(id : string) {
     console.log("evo me u servisu")
     console.log("saljem: " + id)
-    //return this.http.post<string>(this.apiHost + 'acceptReservation', JSON.stringify(id), { headers: this.headers }).pipe();
     this.http.post<AccpData>(this.apiHost + 'acceptReservation', JSON.stringify(id) ,{ headers : this.headers}).subscribe((data) => {
         console.log(data.dlt)
     })
