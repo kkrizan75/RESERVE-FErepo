@@ -33,9 +33,7 @@ export class AcceptReservationComponent {
   public reservationListFunction(){
     let i = 0;
     this.adminService.reservationListFunction().subscribe((result) => {
-
-      //console.log(result)
-
+      console.log(result)
       result.forEach(element=>{
         this.reservationList.push(element)
       })

@@ -1,10 +1,12 @@
 import { BookingRequest } from './../model/BookingRequestModel';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSort, Sort } from '@angular/material/sort';
 import { AllReservationInfo } from '../model/AllReservationInfo';
 import { MatTableDataSource } from '@angular/material/table';
+import { ReservationService } from '../service/reservation.service';
+import { Reservation } from '../model/ReservationModel';
 import { AdminService } from '../service/admin.service';
 
 
@@ -16,46 +18,46 @@ import { AdminService } from '../service/admin.service';
 })
 export class BookingRequestsComponent implements OnInit{
 
-  constructor(private reservationService: AdminService , private _liveAnnouncer: LiveAnnouncer, public dialog: MatDialog) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any , private reservationService: AdminService , public dialog: MatDialog, private dialogRef: MatDialogRef<BookingRequestsComponent>) {}
 
-  displayedColumns: string[] = ['id', 'startDate', 'finishDate', 'numberOfGuests', 'approve', 'reject'];
+  displayedColumns: string[] = ['guestName', 'startDate', 'finishDate', 'numberOfGuests', 'approve'];
   
   public isChecked = false;
 
-  public dataSource = new MatTableDataSource<AllReservationInfo>();
-  public allReservations : AllReservationInfo[] = []
-  public reservation : AllReservationInfo = new AllReservationInfo();
+  public dataSource = new MatTableDataSource<Reservation>();
 
   
   ngOnInit(): void {
-    this.showAllReservationsForHost();
+    this.showAllReservationsForSelectedAcommodation();
   }
   
 
-  @ViewChild(MatSort) sort!: MatSort;
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-  }
-
-  announceSortChange(sortState: Sort) { //za sortiranje
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
-  }
   
-  public approveRequest(): void{
+  public acceptRes(id : string){
+    this.reservationService.acceptReservation(id);
+    alert(`You have successfully accepted reservation!`)
+    this.dialogRef.close();
   }
 
-  public rejectRequest(): void{
+
+  public showAllReservationsForSelectedAcommodation() {
+
+    this.reservationService.reservationListFunction().subscribe(res => {
+      const reservations: AllReservationInfo = {
+        allAcco: []
+      };
+  
+      res.forEach(accommodation => {
+        accommodation.allAcco.forEach(reservation => {
+          reservations.allAcco.push(reservation);
+        });
+      });
+  
+      this.dataSource.data = reservations.allAcco;
+      console.log(reservations);
+    });
   }
 
-
-  public showAllReservationsForHost() {
-    this.reservatin
-  }
 
 
 }

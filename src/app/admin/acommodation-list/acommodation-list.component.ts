@@ -38,8 +38,9 @@ export class AcommodationListComponent implements OnInit, AfterViewInit  {
   }
 
   public showAllAcommodations(): void {
-    this.acommodationService.getAllAcommodations().subscribe(
+    this.acommodationService.getAllByCreator().subscribe(
       res => {
+        //console.log(res);
         this.acommodations = res;
         this.dataSource.data = this.acommodations;
         console.log(this.dataSource.data);
@@ -67,12 +68,6 @@ export class AcommodationListComponent implements OnInit, AfterViewInit  {
 
   }
 
-  // public addUpdatePrice(selectedAcommodation: Acommodation): void {
-  //   this.dialog.open(AddUpdatePriceComponent, {
-  //     width: '50%',
-  //     data: selectedAcommodation
-  //   });
-  // }
 
   public bookingRequests(selectedAcommodation: Acommodation): void {
     this.dialog.open(BookingRequestsComponent, {

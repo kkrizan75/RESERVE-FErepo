@@ -1,18 +1,12 @@
-.tableDiv{
-    box-shadow: none;
-    border-bottom: 1px solid rgb(141, 107, 56);
-    border-radius: 2%;
-}
-
-.toggleDiv{
-    font-size: small;
-    margin-left: 85%;
-    margin-top: 1%;
-    display:flex;
-}
-
-.toggle{
-    margin-top: 5%;
-    margin-left: 4%;
-    margin-right: 2%;
-}
+.centered-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+  
+  .centered-table th,
+  .centered-table td {
+    text-align: center;
+    padding: 10px;
+    width: calc(100% / 6); /* Adjust the number of columns accordingly */
+  }

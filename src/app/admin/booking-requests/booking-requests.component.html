@@ -1,44 +1,38 @@
 <div class="mainDiv">
      
     <div class="tableDiv">
-        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" >
+        <table mat-table [dataSource]="dataSource" >
 
-            <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
-                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+
+            <ng-container matColumnDef="guestName">
+                <th mat-header-cell *matHeaderCellDef > Guest Username </th>
+                <td mat-cell *matCellDef="let element"> {{element.guestUsername}} </td>
             </ng-container>
 
             <ng-container matColumnDef="startDate">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
-                <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+                <th mat-header-cell *matHeaderCellDef > Start Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.fromDate | date : 'dd.MM.yyyy.'}} </td>
             </ng-container>
         
             <ng-container matColumnDef="finishDate">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> End Date </th>
-                <td mat-cell *matCellDef="let element"> {{element.finishDate}} </td>
+                <th mat-header-cell *matHeaderCellDef > End Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.toDate | date : 'dd.MM.yyyy.'}} </td>
             </ng-container>
         
             <ng-container matColumnDef="numberOfGuests">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Number of Guests </th>
-            <td mat-cell *matCellDef="let element"> {{element.numberOfGuests}} </td>
+            <th mat-header-cell *matHeaderCellDef > Number of Guests </th>
+            <td mat-cell *matCellDef="let element"> {{element.guestNumber }} </td>
             </ng-container>
         
 
             <ng-container matColumnDef="approve">
                 <th mat-header-cell *matHeaderCellDef > </th>
                 <td mat-cell *matCellDef="let element">
-                    <button mat-icon-button color="primary" (click)="approveRequest()" aria-label="Example icon button with a plus one icon">
+                    <button mat-icon-button color="primary" (click)="acceptRes(element.id)" aria-label="Example icon button with a plus one icon">
                         <mat-icon>done_outline</mat-icon>
                       </button>
             </ng-container>
 
-            <ng-container matColumnDef="reject">
-                <th mat-header-cell *matHeaderCellDef > </th>
-                <td mat-cell *matCellDef="let element">
-                    <button mat-icon-button color="warn" (click)="rejectRequest()" aria-label="Example icon button with a plus one icon">
-                        <mat-icon>highlight_off</mat-icon>
-                      </button>
-            </ng-container>
 
        
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

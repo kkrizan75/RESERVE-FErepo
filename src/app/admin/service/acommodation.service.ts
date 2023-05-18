@@ -36,6 +36,14 @@ export class AcommodationService {
     );
   }
 
+  public getAllByCreator() {
+    const requestBody: string = '' ;
+
+    return this.http.post<AcommodationResponse>(this.apiHost + "allByCreator", requestBody).pipe(
+      map(response => response.allAcco)
+    );
+  }
+
   public searchAccommodations(location: string, dateFrom: string, dateTo: string, guestNumber: number) {
     const requestBody = {
       location: location,
