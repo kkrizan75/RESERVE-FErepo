@@ -10,3 +10,7 @@
     padding: 10px;
     width: calc(100% / 6); /* Adjust the number of columns accordingly */
   }
+
+  .hideRow {
+    display: none;
+  }
